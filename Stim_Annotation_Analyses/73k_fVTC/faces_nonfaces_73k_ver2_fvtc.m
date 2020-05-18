@@ -70,11 +70,11 @@ for subjix = 1:nsubj, subjix % Loop over subjects
         
         for i = 1:totimg(subjix), fprintf('*'); % tot images
             
-            if ( (rept(subjix,2,i)<(nsess(subjix)*ntps)) && (rept(subjix,3,i)<(nsess(subjix)*ntps)) && (rept(subjix,4,i)<(nsess(subjix)*ntps)))
+            if (rept(subjix,4,i)<(nsess(subjix)*ntps))
                 tr_avg(:,i) = (allbetas(:,rept(subjix,2,i)) + allbetas(:,rept(subjix,3,i)) + allbetas(:,rept(subjix,4,i)))./3;
-            else if((rept(subjix,2,i)<(nsess(subjix)*ntps)) && (rept(subjix,3,i)<(nsess(subjix)*ntps)))
+            else if (rept(subjix,3,i)<(nsess(subjix)*ntps))
                     tr_avg(:,i) = (allbetas(:,rept(subjix,2,i)) + allbetas(:,rept(subjix,3,i)))./2;
-                else if ((rept(subjix,2,i)<(nsess(subjix)*ntps)))
+                else if (rept(subjix,2,i)<(nsess(subjix)*ntps))
                         tr_avg(:,i) = allbetas(:,rept(subjix,2,i));
                     end
                 end
